@@ -2,7 +2,7 @@ require 'helper_spec'
 
 
 describe 'Ticket' do
-  
+
   describe 'initialize' do
     it 'initializes with a hash' do
       new_ticket = Ticket.new({ :partner_one=> 'Roger', :partner_two=> 'Kim' })
@@ -15,7 +15,7 @@ describe 'Ticket' do
     end
   end
 
-  describe 'can read object attributes' do
+  describe 'object attributes' do
     it 'lets you read partner names' do
       new_ticket = Ticket.new({ :partner_one=> 'Roger', :partner_two=> 'Kim' })
       expect(new_ticket.partner_one).to eq 'Roger'
@@ -30,6 +30,11 @@ describe 'Ticket' do
     it 'lets you read the issue' do
       new_ticket = Ticket.new({ :issue=> 'How to make attributes readable?' })
       expect(new_ticket.issue).to eq 'How to make attributes readable?'
+    end
+
+    it 'lets you read the time stamp' do
+      new_ticket = Ticket.new({})
+      expect(new_ticket.time_stamp).to eq Time.new.strftime("%I:%M%p")
     end
   end
 end
