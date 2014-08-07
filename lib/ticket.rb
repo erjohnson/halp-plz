@@ -1,6 +1,7 @@
 class Ticket
 
-  attr_reader :partner_one, :partner_two, :subject
+  attr_reader :partner_one, :partner_two, :subject, :issue
+  attr_accessor :done
 
   def initialize attr
     @partner_one = attr[:partner_one]
@@ -8,7 +9,7 @@ class Ticket
     @subject = attr[:subject]
     @issue = attr[:issue]
     @time_stamp = attr[:time_stamp]
-    @done = attr[:done]
+    @done = false
   end
   
 end
