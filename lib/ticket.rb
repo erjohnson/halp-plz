@@ -1,5 +1,5 @@
 class Ticket
-  
+
   @@tickets = []
 
   attr_reader :partner_one, :partner_two, :subject, :issue, :time_stamp
@@ -16,6 +16,14 @@ class Ticket
 
   def self.all
     @@tickets
+  end
+
+  def self.clear
+    @@tickets = []
+  end
+
+  def save
+    @@tickets << self
   end
   
 end

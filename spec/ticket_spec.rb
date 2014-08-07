@@ -43,4 +43,21 @@ describe 'Ticket' do
       expect(Ticket.all).to eq []
     end
   end
+
+  describe '.clear' do
+    it 'removes all tickets' do
+      new_ticket = Ticket.new({})
+      new_ticket.save
+      Ticket.clear
+      expect(Ticket.all).to eq []
+    end
+  end
+
+  describe 'save' do
+    it 'saves a ticket' do
+      new_ticket = Ticket.new({})
+      new_ticket.save
+      expect(Ticket.all[0]).to eq new_ticket
+    end
+  end
 end
