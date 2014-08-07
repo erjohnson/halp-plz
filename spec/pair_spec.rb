@@ -13,4 +13,10 @@ describe 'Pair' do
       new_pair = Pair.new({ :name_one=> 'Carol', :name_two=> 'Marty' })
     end
   end
+
+  describe '.all' do
+    it 'starts as an empty array' do
+      expect(Pair.all).to eq []
+    end
+  end
 end
