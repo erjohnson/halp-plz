@@ -8,4 +8,10 @@ describe 'Ticket' do
     expect(new_ticket).to be_an_instance_of Ticket
   end
 
+  it 'lets you read partner names' do
+    new_ticket = Ticket.new({ :partner_one=> 'Roger', :partner_two=> 'Kim' })
+    expect(new_ticket.partner_one).to eq 'Roger'
+    expect(new_ticket.partner_two).to eq 'Kim'
+  end
+
 end
