@@ -37,4 +37,10 @@ describe 'Ticket' do
       expect(new_ticket.time_stamp).to eq Time.new.strftime("%I:%M%p")
     end
   end
+
+  describe '.all' do
+    it 'starts as an empty array' do
+      expect(Ticket.all).to eq []
+    end
+  end
 end

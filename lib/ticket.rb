@@ -1,4 +1,6 @@
 class Ticket
+  
+  @@tickets = []
 
   attr_reader :partner_one, :partner_two, :subject, :issue, :time_stamp
   attr_accessor :done
@@ -10,6 +12,10 @@ class Ticket
     @issue = attr[:issue]
     @time_stamp = Time.new.strftime("%I:%M%p")
     @done = false
+  end
+
+  def self.all
+    @@tickets
   end
   
 end
