@@ -1,6 +1,6 @@
 class Ticket
 
-  attr_reader :partner_one, :partner_two
+  attr_reader :partner_one, :partner_two, :subject
 
   def initialize attr
     @partner_one = attr[:partner_one]
