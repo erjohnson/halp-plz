@@ -12,4 +12,12 @@ class Pair
   def self.all
     @@pairs
   end
+
+  def self.clear
+    @@pairs = []
+  end
+
+  def save
+    @@pairs << self
+  end
 end

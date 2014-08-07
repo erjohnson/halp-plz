@@ -19,4 +19,23 @@ describe 'Pair' do
       expect(Pair.all).to eq []
     end
   end
+
+  describe '.clear' do
+    it 'removes all pairs' do
+      new_pair1 = Pair.new({})
+      new_pair1.save
+      new_pair2 = Pair.new({})
+      new_pair2.save
+      Pair.clear
+      expect(Pair.all).to eq []
+    end
+  end
+
+  describe 'save' do
+    it 'saves a pair' do
+      new_pair = Pair.new({})
+      new_pair.save
+      expect(Pair.all[0]).to eq new_pair
+    end
+  end
 end
