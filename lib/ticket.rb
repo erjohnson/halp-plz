@@ -25,5 +25,9 @@ class Ticket
   def save
     @@tickets << self
   end
+
+  def remove
+    Ticket.all.delete(self)
+  end
   
 end
