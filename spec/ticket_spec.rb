@@ -42,6 +42,14 @@ describe 'Ticket' do
     it 'starts as an empty array' do
       expect(Ticket.all).to eq []
     end
+
+    it 'shows all tickets' do
+      new_ticket1 = Ticket.new({})
+      new_ticket1.save
+      new_ticket2 = Ticket.new({})
+      new_ticket2.save
+      expect(Ticket.all).to eq [new_ticket1, new_ticket2]
+    end
   end
 
   describe '.clear' do

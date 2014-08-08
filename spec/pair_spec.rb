@@ -18,6 +18,14 @@ describe 'Pair' do
     it 'starts as an empty array' do
       expect(Pair.all).to eq []
     end
+
+    it 'shows all pairs' do
+      new_pair1 = Pair.new({})
+      new_pair1.save
+      new_pair2 = Pair.new({})
+      new_pair2.save
+      expect(Pair.all).to eq [new_pair1, new_pair2]
+    end
   end
 
   describe '.clear' do
