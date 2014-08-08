@@ -20,4 +20,12 @@ class Pair
   def save
     @@pairs << self
   end
+
+  def remove
+    Pair.all.delete(self)
+  end
+
+  def show_pair_tickets
+    Ticket.all.select { |x| x.partner_one == @name_one && x.partner_two == @name_two}
+  end
 end

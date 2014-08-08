@@ -38,4 +38,27 @@ describe 'Pair' do
       expect(Pair.all[0]).to eq new_pair
     end
   end
+
+  describe 'remove' do
+    it 'deletes a pair' do
+      new_pair = Pair.new({})
+      new_pair.save
+      new_pair.remove
+      expect(Pair.all).to eq []
+    end
+  end
+
+  describe 'show_pair_tickets' do
+    it 'return tickets created by the pair' do
+      new_pair = Pair.new({ :name_one=> 'Carol', :name_two=> 'Marty' })
+      new_pair.save
+      new_ticket1 = Ticket.new({ :partner_one=> 'Carol', :partner_two=> 'Marty' })
+      new_ticket1.save
+      new_ticket2 = Ticket.new({ :partner_one=> 'Carol', :partner_two=> 'Marty' })
+      new_ticket2.save
+      new_ticket3 = Ticket.new({ :partner_one=> 'Joe', :partner_two=> 'Louie' })
+      new_ticket3.save
+      expect(new_pair.show_pair_tickets).to eq [new_ticket1, new_ticket2]
+    end
+  end
 end
