@@ -31,8 +31,15 @@ class Ticket
   end
 
   def mark_done
-    if !@done
-      @done = true
+    if num = Ticket.all.index(self)
+      ticket = Ticket.all[num]
+      if !ticket.done
+        ticket.done = true
+      else
+        "Already marked done."
+      end
+    else
+      "Ticket is not on the list."
     end
   end
   

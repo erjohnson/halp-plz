@@ -79,10 +79,23 @@ describe 'Ticket' do
   end
 
   describe 'mark_done' do
-    it 'marks the ticket as done' do
+    it 'marks the ticket as done in the tickets array' do
       new_ticket = Ticket.new({})
+      new_ticket.save
       new_ticket.mark_done
-      expect(new_ticket.done).to eq true
+      expect(Ticket.all[0].done).to eq true
+    end
+
+    it 'does not mark ticket if already done' do
+      new_ticket = Ticket.new({})
+      new_ticket.save
+      Ticket.all[0].done = true
+      expect(new_ticket.mark_done).to eq "Already marked done."
+    end
+
+    it 'checks if the ticket is on the list' do
+      new_ticket = Ticket.new({})
+      expect(new_ticket.mark_done).to eq "Ticket is not on the list."
     end
   end
 end
