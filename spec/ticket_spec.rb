@@ -77,4 +77,12 @@ describe 'Ticket' do
       expect(Ticket.all).to eq []
     end
   end
+
+  describe 'mark_done' do
+    it 'marks the ticket as done' do
+      new_ticket = Ticket.new({})
+      new_ticket.mark_done
+      expect(new_ticket.done).to eq true
+    end
+  end
 end

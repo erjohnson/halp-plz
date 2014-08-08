@@ -29,5 +29,11 @@ class Ticket
   def remove
     Ticket.all.delete(self)
   end
+
+  def mark_done
+    if !@done
+      @done = true
+    end
+  end
   
 end
